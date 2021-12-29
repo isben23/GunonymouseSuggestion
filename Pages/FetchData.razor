@@ -46,23 +46,23 @@
                             <td>@suggestion.Votes</td>
                             <td>
                                 <!--Edit the current suggestion-->
-                                <button class="btn btn-primary"
+                        <button class="btn btn-primary"
                                 @onclick="(() => EditSuggestion(suggestion))">
-                            Edit
-                        </button>
+                                    Edit
+                                </button>
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
-                        <p>
-    <!-- Add a new suggestion -->
+            <p>
+                <!-- Add a new suggestion -->
             <button class="btn btn-success"
                     @onclick="AddNewSuggestion">
                     Add New Suggestion
                 </button>
             </p>
-         
+
             @if (ShowPopup)
             {
                 <!-- This is the popup to create or edit a suggestion -->
@@ -72,20 +72,20 @@
                             <div class="modal-header">
                                 <h3 class="modal-title">Edit Suggestion</h3>
                                 <!-- Button to close the popup -->
-                                <button type="button" class="close"
+                        <button type="button" class="close"
                                 @onclick="ClosePopup">
                                     <span aria-hidden="true">X</span>
                                 </button>
                             </div>
                             <!-- Edit form for the current suggestion -->
-                            <div class="modal-body">
+                    <div class="modal-body">
                                 <input class="form-control" type="text"
-                                placeholder="Title" @bind="objAnnonymousSuggestion.Title" />
+                               placeholder="Title" @bind="objAnnonymousSuggestion.Title" />
                                 <input class="form-control" type="text"
                                placeholder="Description" @bind="objAnnonymousSuggestion.Description " />
                                 <br />
                                 <!-- Button to save the suggestion -->
-                                <button class="btn btn-success"
+                        <button class="btn btn-success"
                                 @onclick="SaveSuggestion">
                                     Save
                                 </button>&nbsp;
@@ -94,9 +94,9 @@
                                 {
                                     <!--Button to delete the suggestion-->
                                     <button class="btn btn-danger"
-                                    @onclick="DeleteSuggestion">
-                                    Delete
-                                </button>
+                                @onclick="DeleteSuggestion">
+                                        Delete
+                                    </button>
                                 }
                             </div>
                         </div>
@@ -104,14 +104,14 @@
                 </div>
             }
         }
-                
+
     </Authorized>
     <!-- Show this section if the user is not logged in -->
     <NotAuthorized>
         <p>You're not signed in.</p>
     </NotAuthorized>
 </AuthorizeView>
-@code 
+@code
 {
     // AuthenticationState is available as a CascadingParameter
     [CascadingParameter]
@@ -195,5 +195,5 @@
         suggestions =
         await @Service.GetSuggestionAsync(UserIdentityName);
     }
-    
+
 }
